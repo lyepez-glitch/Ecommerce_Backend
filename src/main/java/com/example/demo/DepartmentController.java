@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/departments")
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from your frontend
+@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
 public class DepartmentController{
 
 
