@@ -49,7 +49,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true); // Allow credentials if needed
-        configuration.addAllowedOrigin("http://localhost:5173"); // Allow requests from this origin
+        configuration.addAllowedOrigin("http://127.0.0.1:5173"); // Allow requests from this origin
         configuration.addAllowedMethod("*"); // Allow all methods (GET, POST, OPTIONS, etc.)
         configuration.addAllowedHeader("*"); // Allow all headers
         configuration.setMaxAge(3600L); // Cache for an hour
