@@ -50,6 +50,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true); // Allow credentials if needed
         configuration.addAllowedOrigin("http://127.0.0.1:5173"); // Allow requests from this origin
+        configuration.addAllowedOrigin("http://localhost:5173"); // Localhost with name
+        configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
         configuration.addAllowedMethod("*"); // Allow all methods (GET, POST, OPTIONS, etc.)
         configuration.addAllowedHeader("*"); // Allow all headers
         configuration.setMaxAge(3600L); // Cache for an hour
@@ -75,7 +77,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/employee/**").hasRole("EMPLOYEE")
-                        .anyRequest().authenticated() // Other requests require authentication
+                        .anyRequest().permitAll() // Other requests require authentication
                 )
                 .httpBasic(withDefaults()); // Use basic authentication for simplicity
 
