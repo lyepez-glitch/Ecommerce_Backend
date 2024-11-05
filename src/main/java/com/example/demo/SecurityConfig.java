@@ -59,6 +59,7 @@ public class SecurityConfig {
         configuration.setMaxAge(3600L); // Cache for an hour
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
         source.registerCorsConfiguration("/**", configuration); // Apply the CORS configuration to all paths
         return source;
     }
