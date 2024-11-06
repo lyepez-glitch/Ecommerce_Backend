@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Allow all endpoints
                 .allowedOrigins(
-                        "https://oracle-ecommerce-i24uanlqd-lucas-projects-f61d5cb5.vercel.app",
+                        "https://oracle-ecommerce-app.vercel.app",
                         "http://127.0.0.1:5173",
                         "https://ecommerce-backend-1-yn41.onrender.com"
                 ) // Allow specified origins
