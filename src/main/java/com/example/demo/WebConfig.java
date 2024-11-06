@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOriginPatterns("https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app") // Your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
-                .allowCredentials(true)
+
                 .maxAge(3600); // Cache the CORS config for 1 hour
     }
 }
