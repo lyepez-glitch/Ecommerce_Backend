@@ -22,7 +22,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class SecurityConfig {
 
-    // Create two users: admin and employee, with respective roles and encoded passwords
+    // Create users with respective roles and encoded passwords
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails admin = User.withUsername("admin")
@@ -38,7 +38,7 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, employee);
     }
 
-    // Define a BCrypt password encoder
+    // Password encoder bean
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // Use BCrypt to encode passwords
@@ -49,43 +49,40 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true); // Allow credentials if needed
-        configuration.addAllowedOrigin("http://127.0.0.1:5173"); // Allow requests from this origin
-        configuration.addAllowedOrigin("http://localhost:5173"); // Localhost with name
-
+        configuration.addAllowedOrigin("https://oracle-ecommerce-i24uanlqd-lucas-projects-f61d5cb5.vercel.app");
+        configuration.addAllowedOrigin("http://127.0.0.1:5173");
+        configuration.addAllowedOrigin("http://localhost:5173");
         configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
 
-        configuration.addAllowedOrigin("https://oracle-ecommerce-i24uanlqd-lucas-projects-f61d5cb5.vercel.app");
-
-        configuration.addAllowedMethod("*"); // Allow all methods (GET, POST, OPTIONS, etc.)
+        configuration.addAllowedMethod("*"); // Allow all methods
         configuration.addAllowedHeader("*"); // Allow all headers
         configuration.setMaxAge(3600L); // Cache for an hour
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration); // Apply CORS configuration
 
-        source.registerCorsConfiguration("/**", configuration); // Apply the CORS configuration to all paths
         return source;
     }
 
     // CORS Filter Bean
     @Bean
     public CorsFilter corsFilter() {
-
         return new CorsFilter(corsConfigurationSource());
     }
 
-    // Security settings to restrict access based on roles
+    // Security filter chain configuration
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(withDefaults()) // Enable CORS
+                .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity (consider enabling in production)
+                .cors(withDefaults()) // Enable CORS support
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/employee/**").hasRole("EMPLOYEE")
-                        .anyRequest().permitAll() // Other requests require authentication
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict admin endpoints
+                        .requestMatchers("/employee/**").hasRole("EMPLOYEE") // Restrict employee endpoints
+                        .anyRequest().authenticated() // Require authentication for all other requests
                 )
-                .httpBasic(withDefaults()); // Use basic authentication for simplicity
+                .httpBasic(withDefaults()); // Use basic authentication
 
         return http.build();
     }
