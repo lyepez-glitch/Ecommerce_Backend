@@ -21,9 +21,7 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
-            allowedHeaders = "*",
-            methods = {RequestMethod.POST, RequestMethod.OPTIONS})  // Allow POST and OPTIONS methods
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")  // Allow POST and OPTIONS methods
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupRequest signupRequest) {
         // Implement user creation logic
