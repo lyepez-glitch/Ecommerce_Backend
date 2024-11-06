@@ -24,7 +24,7 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-//    @CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app")
+    @CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app")
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupRequest signupRequest) {
         // Implement user creation logic

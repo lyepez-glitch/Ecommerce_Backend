@@ -13,8 +13,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/employees")
-//@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
+@RequestMapping("/employees")
+@CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app") // Allow requests from your frontend
 public class EmployeeController{
 
 
