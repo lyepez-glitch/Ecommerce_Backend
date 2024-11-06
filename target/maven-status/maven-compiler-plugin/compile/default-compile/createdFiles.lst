@@ -14,7 +14,6 @@ com/example/demo/PromoteDTO.class
 com/example/demo/EmployeeDTO.class
 com/example/demo/SecurityConfig.class
 com/example/demo/DepartmentService.class
-com/example/demo/WebConfig.class
 com/example/demo/EmployeeAuditDTO.class
 com/example/demo/DemoApplication.class
 com/example/demo/PerformanceReviewsController.class

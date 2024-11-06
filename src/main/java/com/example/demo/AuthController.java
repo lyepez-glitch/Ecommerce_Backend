@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-//@CrossOrigin(origins = "https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app") // Allow your React app's URL
+//@CrossOrigin(origins = "https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app")
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -20,6 +20,7 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             allowedHeaders = "*",
             methods = {RequestMethod.POST, RequestMethod.OPTIONS})  // Allow POST and OPTIONS methods
