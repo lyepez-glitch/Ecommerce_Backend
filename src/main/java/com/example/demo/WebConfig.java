@@ -9,15 +9,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Allow all endpoints
-                .allowedOrigins(
-                        "https://oracle-ecommerce-app.vercel.app"
-//                        "http://127.0.0.1:5173",
-//                        "https://ecommerce-backend-1-yn41.onrender.com"
-                ) // Allow specified origins
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed HTTP methods
-                .allowedHeaders("*") // Allow all headers
-                .allowCredentials(true) // Allow credentials if needed
-                .maxAge(3600); // Set max age for caching CORS preflight responses (1 hour)
+        registry.addMapping("/**")
+                .allowedOrigins("https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app") // Your frontend URL
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .maxAge(3600); // Cache the CORS config for 1 hour
     }
 }

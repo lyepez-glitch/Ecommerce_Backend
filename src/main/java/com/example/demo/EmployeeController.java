@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
-@CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app") // Allow requests from your frontend
+@CrossOrigin(origins = "https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app") // Allow requests from your frontend
 public class EmployeeController{
 
 
