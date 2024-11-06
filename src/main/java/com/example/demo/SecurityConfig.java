@@ -51,7 +51,9 @@ public class SecurityConfig {
         configuration.setAllowCredentials(true); // Allow credentials if needed
         configuration.addAllowedOrigin("http://127.0.0.1:5173"); // Allow requests from this origin
         configuration.addAllowedOrigin("http://localhost:5173"); // Localhost with name
+
         configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
+
         configuration.addAllowedOrigin("https://oracle-ecommerce-i24uanlqd-lucas-projects-f61d5cb5.vercel.app");
 
         configuration.addAllowedMethod("*"); // Allow all methods (GET, POST, OPTIONS, etc.)
@@ -67,6 +69,7 @@ public class SecurityConfig {
     // CORS Filter Bean
     @Bean
     public CorsFilter corsFilter() {
+
         return new CorsFilter(corsConfigurationSource());
     }
 
