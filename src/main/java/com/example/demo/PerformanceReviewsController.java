@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/reviews")
-@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
+//@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
 public class PerformanceReviewsController{
 
 

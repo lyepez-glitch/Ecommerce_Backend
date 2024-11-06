@@ -75,6 +75,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity (consider enabling in production)
+
                 .cors(withDefaults()) // Enable CORS support
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
