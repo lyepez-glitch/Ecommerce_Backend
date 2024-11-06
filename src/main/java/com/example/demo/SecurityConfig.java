@@ -50,9 +50,9 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true); // Allow credentials if needed
         configuration.addAllowedOrigin("https://oracle-ecommerce-app.vercel.app");
-        configuration.addAllowedOrigin("http://127.0.0.1:5173");
-        configuration.addAllowedOrigin("http://localhost:5173");
-        configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
+//        configuration.addAllowedOrigin("http://127.0.0.1:5173");
+//        configuration.addAllowedOrigin("http://localhost:5173");
+//        configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
 
         configuration.addAllowedMethod("*"); // Allow all methods
         configuration.addAllowedHeader("*"); // Allow all headers

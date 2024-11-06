@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RestController
-//@CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app") // Allow your React app's URL
+@CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app") // Allow your React app's URL
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -24,7 +24,7 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app")
+//    @CrossOrigin(origins = "https://oracle-ecommerce-app.vercel.app")
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupRequest signupRequest) {
         // Implement user creation logic
