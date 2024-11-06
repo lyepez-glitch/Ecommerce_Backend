@@ -70,22 +70,22 @@ public class SecurityConfig {
 //        return new CorsFilter(corsConfigurationSource());
 //    }
 
-    // Security filter chain configuration
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity (consider enabling in production)
-//
-//                .cors(withDefaults()) // Enable CORS support
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
-//                        .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict admin endpoints
-//                        .requestMatchers("/employee/**").hasRole("EMPLOYEE") // Restrict employee endpoints
-//                        .anyRequest().authenticated() // Require authentication for all other requests
-//                )
-//                .httpBasic(withDefaults()); // Use basic authentication
-//
-//        return http.build();
-//    }
+//     Security filter chain configuration
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity (consider enabling in production)
+
+                .cors(withDefaults()) // Enable CORS support
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict admin endpoints
+                        .requestMatchers("/employee/**").hasRole("EMPLOYEE") // Restrict employee endpoints
+                        .anyRequest().authenticated() // Require authentication for all other requests
+                )
+                .httpBasic(withDefaults()); // Use basic authentication
+
+        return http.build();
+    }
 }
 
