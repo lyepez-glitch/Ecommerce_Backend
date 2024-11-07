@@ -38,6 +38,7 @@ public class RoleController{
 //        return "Manage roles Section";
 //    }
 
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @GetMapping("/roles")
     public ResponseEntity<?> getRoles(){
         try{
@@ -49,7 +50,7 @@ public class RoleController{
 
     }
 
-
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @PostMapping("/roles/add")
     public ResponseEntity<String> addRole(@Valid @RequestBody RoleDTO roleDTO){
         try{
@@ -61,6 +62,7 @@ public class RoleController{
         }
 
     }
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @PutMapping("/roles/update/{id}")
     public ResponseEntity<String> updateRole(@PathVariable("id") Long roleId,
                                                  @RequestBody RoleDTO roleDTO){
@@ -69,6 +71,7 @@ public class RoleController{
         return ResponseEntity.ok("role updated successfully");
     }
 
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @DeleteMapping("/roles/delete/{id}")
     public ResponseEntity<String>deleteRole(@PathVariable("id") Long roleId){
         roleService.deleteRole(roleId);
