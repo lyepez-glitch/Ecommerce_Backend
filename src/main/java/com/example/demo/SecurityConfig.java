@@ -81,7 +81,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/signup", "/api/auth/login").permitAll() // Allow signup and login without authentication
                         .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict admin endpoints
                         .requestMatchers("/employee/**").hasRole("EMPLOYEE") // Restrict employee endpoints
-                        .anyRequest().authenticated() // Require authentication for all other requests
+//                        .anyRequest().authenticated() // Require authentication for all other requests
                 )
                 .httpBasic(withDefaults()); // Use basic authentication
 
