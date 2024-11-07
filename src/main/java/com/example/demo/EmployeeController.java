@@ -26,6 +26,7 @@ public class EmployeeController{
     }
 
     @Secured("ROLE_EMPLOYEE")
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @GetMapping("/profile")
     public String getEmployeeProfile() {
         return "Employee Profile Data";
@@ -38,6 +39,7 @@ public class EmployeeController{
         return "Manage Employees Section";
     }
 
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @GetMapping("/employees")
     public ResponseEntity<?> getEmployees(){
         try{
@@ -49,6 +51,7 @@ public class EmployeeController{
     }
 
 
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @PostMapping("/employees/add")
     public ResponseEntity<String> hireEmployee(@Valid @RequestBody EmployeeDTO employeeDTO){
         try{
@@ -60,6 +63,7 @@ public class EmployeeController{
         }
 
     }
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @PutMapping("/employees/update/{id}")
     public ResponseEntity<String> updateEmployee(@PathVariable("id") Long employeeId,
                                                  @RequestBody EmployeeDTO employeeDTO){
@@ -67,12 +71,15 @@ public class EmployeeController{
         employeeService.updateEmployee(employeeId,employeeDTO);
         return ResponseEntity.ok("Employee updated successfully");
     }
+
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @PutMapping("/employees/promote/{id}")
     public ResponseEntity<String> promoteEmployee(@PathVariable("id") Long employeeId,@RequestBody PromoteDTO promoteDTO){
         employeeService.promoteEmployee(employeeId,promoteDTO.getRoleId(), promoteDTO.getSalary());
         return ResponseEntity.ok("Employee promoted successfully");
     }
 
+    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
     @DeleteMapping("/employees/delete/{id}")
     public ResponseEntity<String> promoteEmployee(@PathVariable("id") Long employeeId){
         employeeService.deleteEmployee(employeeId);
