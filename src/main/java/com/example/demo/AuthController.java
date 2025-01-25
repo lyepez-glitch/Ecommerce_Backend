@@ -21,7 +21,7 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})  // Allow POST and OPTIONS methods
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})  // Allow POST and OPTIONS methods
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupRequest signupRequest) {
         // Implement user creation logic
@@ -34,7 +34,7 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         // Spring Security automatically handles login; return a success message

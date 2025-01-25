@@ -45,7 +45,7 @@ public class PerformanceReviewsController{
 //        return "Manage Employees Section";
 //    }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @GetMapping("/reviews")
     public ResponseEntity<?> getEmployees(){
         try{
@@ -57,7 +57,7 @@ public class PerformanceReviewsController{
     }
 
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @PostMapping("/reviews/add")
     public ResponseEntity<String> addReview(@Valid @RequestBody PerformanceReviewDTO reviewDTO){
         try{
@@ -69,7 +69,7 @@ public class PerformanceReviewsController{
         }
 
     }
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @PutMapping("/reviews/update/{id}")
     public ResponseEntity<String> updateReview(@PathVariable("id") Long reviewId,
                                                  @RequestBody PerformanceReviewDTO reviewDTO){
@@ -77,7 +77,7 @@ public class PerformanceReviewsController{
         return ResponseEntity.ok("Review updated successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @DeleteMapping("/reviews/delete/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable("id") Long reviewId){
         performanceReviewsService.deleteReview(reviewId);

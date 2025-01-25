@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 //@RequestMapping("/employees")
 @CrossOrigin(origins = {
-        "https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app",
         "https://oracle-ecommerce-app.vercel.app"
 }) // Allow requests from your frontend
 public class EmployeeController{
@@ -30,7 +29,6 @@ public class EmployeeController{
 
     @Secured("ROLE_EMPLOYEE")
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @GetMapping("/profile")
@@ -46,7 +44,6 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @GetMapping("/employees")
@@ -61,7 +58,6 @@ public class EmployeeController{
 
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @PostMapping("/employees/add")
@@ -76,7 +72,6 @@ public class EmployeeController{
 
     }
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @PutMapping("/employees/update/{id}")
@@ -88,7 +83,6 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @PutMapping("/employees/promote/{id}")
@@ -98,7 +92,6 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app",
             "https://oracle-ecommerce-app.vercel.app"
     })
     @DeleteMapping("/employees/delete/{id}")

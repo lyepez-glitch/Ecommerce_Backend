@@ -28,9 +28,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://oracle-ecommerce-6wsgotup1-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app") // Add your frontend URL here
+                .allowedOrigins("https://oracle-ecommerce-app.vercel.app") // Add your frontend URL here
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
 }
+

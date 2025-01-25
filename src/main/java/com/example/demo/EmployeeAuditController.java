@@ -38,7 +38,7 @@ public class EmployeeAuditController{
 //        return "Manage Employees Section";
 //    }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @GetMapping("/employeeAudits")
     public ResponseEntity<?> getEmployeeAudits(){
         try{
@@ -50,7 +50,7 @@ public class EmployeeAuditController{
 
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @PostMapping("/employeeAudits/add")
     public ResponseEntity<String> hireEmployee(@Valid @RequestBody EmployeeAuditDTO employeeAuditDTO){
         try{
@@ -62,7 +62,7 @@ public class EmployeeAuditController{
         }
 
     }
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @PutMapping("/employeeAudit/update/{id}")
     public ResponseEntity<String> updateEmployee(@PathVariable("id") Long employeeAuditId,
                                                  @RequestBody EmployeeAuditDTO employeeAuditDTO){
@@ -70,7 +70,7 @@ public class EmployeeAuditController{
         return ResponseEntity.ok("Employee Audit updated successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
     @DeleteMapping("/employeeAudit/delete/{id}")
     public ResponseEntity<String> promoteEmployee(@PathVariable("id") Long employeeAuditId){
         employeeAuditService.deleteAudit(employeeAuditId);
