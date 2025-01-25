@@ -38,7 +38,7 @@ public class DepartmentController{
 //        return "Manage Employees Section";
 //    }
 
-    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
+    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
     @GetMapping("/departments")
     public ResponseEntity<?> getDepartments(){
         try{
@@ -49,7 +49,7 @@ public class DepartmentController{
 
     }
 
-    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
+    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
     @PostMapping("/departments/add")
     public ResponseEntity<String> addDepartment(@Valid @RequestBody DepartmentDTO departmentDTO){
         try{
@@ -61,7 +61,7 @@ public class DepartmentController{
         }
 
     }
-    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
+    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
     @PutMapping("/departments/update/{id}")
     public ResponseEntity<String> updateDepartment(@PathVariable("id") Long departmentId,
                                                  @RequestBody DepartmentDTO departmentDTO){
@@ -69,7 +69,7 @@ public class DepartmentController{
         return ResponseEntity.ok("Department updated successfully");
     }
 
-    @CrossOrigin(origins = "https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app")
+    @CrossOrigin(origins = {"https://oracle-ecommerce-k7omklaqi-lucas-projects-f61d5cb5.vercel.app","https://oracle-ecommerce-app.vercel.app"})
     @DeleteMapping("/departments/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long departmentId){
         departmentService.deleteDepartment(departmentId);
