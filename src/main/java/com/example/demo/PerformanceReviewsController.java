@@ -10,6 +10,7 @@ package com.example.demo;
 import com.example.demo.PerformanceReviewsService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,10 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/reviews")
-//@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
+//
 public class PerformanceReviewsController{
-
+    @Value("${RENDER_URL}")
+    private String renderURL;
 
     @Autowired
     private PerformanceReviewsService performanceReviewsService;
@@ -45,7 +47,7 @@ public class PerformanceReviewsController{
 //        return "Manage Employees Section";
 //    }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @GetMapping("/reviews")
     public ResponseEntity<?> getEmployees(){
         try{
@@ -57,7 +59,7 @@ public class PerformanceReviewsController{
     }
 
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PostMapping("/reviews/add")
     public ResponseEntity<String> addReview(@Valid @RequestBody PerformanceReviewDTO reviewDTO){
         try{
@@ -69,7 +71,7 @@ public class PerformanceReviewsController{
         }
 
     }
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PutMapping("/reviews/update/{id}")
     public ResponseEntity<String> updateReview(@PathVariable("id") Long reviewId,
                                                  @RequestBody PerformanceReviewDTO reviewDTO){
@@ -77,7 +79,7 @@ public class PerformanceReviewsController{
         return ResponseEntity.ok("Review updated successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @DeleteMapping("/reviews/delete/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable("id") Long reviewId){
         performanceReviewsService.deleteReview(reviewId);

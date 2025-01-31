@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.RoleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,11 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/roles")
-//@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
+//
 public class RoleController{
 
+    @Value("${RENDER_URL}")
+    private String renderURL;
 
     @Autowired
     private RoleService roleService;
@@ -38,7 +41,7 @@ public class RoleController{
 //        return "Manage roles Section";
 //    }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @GetMapping("/roles")
     public ResponseEntity<?> getRoles(){
         try{
@@ -50,7 +53,7 @@ public class RoleController{
 
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PostMapping("/roles/add")
     public ResponseEntity<String> addRole(@Valid @RequestBody RoleDTO roleDTO){
         try{
@@ -62,7 +65,7 @@ public class RoleController{
         }
 
     }
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PutMapping("/roles/update/{id}")
     public ResponseEntity<String> updateRole(@PathVariable("id") Long roleId,
                                                  @RequestBody RoleDTO roleDTO){
@@ -71,7 +74,7 @@ public class RoleController{
         return ResponseEntity.ok("role updated successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @DeleteMapping("/roles/delete/{id}")
     public ResponseEntity<String>deleteRole(@PathVariable("id") Long roleId){
         roleService.deleteRole(roleId);

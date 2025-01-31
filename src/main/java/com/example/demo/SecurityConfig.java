@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,6 +22,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 public class SecurityConfig {
+    @Value("${RENDER_URL}")
+    private String renderURL;
 
     // Create users with respective roles and encoded passwords
     @Bean
@@ -44,31 +47,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(); // Use BCrypt to encode passwords
     }
 
-//     CORS configuration
-//    @Bean
-//    public CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowCredentials(true); // Allow credentials if needed
-//        configuration.addAllowedOrigin("https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app");
-////        configuration.addAllowedOrigin("http://127.0.0.1:5173");
-////        configuration.addAllowedOrigin("http://localhost:5173");
-////        configuration.addAllowedOrigin("https://ecommerce-backend-1-yn41.onrender.com");
-//
-//        configuration.addAllowedMethod("*"); // Allow all methods
-//        configuration.addAllowedHeader("*"); // Allow all headers
-//        configuration.setMaxAge(3600L); // Cache for an hour
-//
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-////        source.registerCorsConfiguration("/**", configuration); // Apply CORS configuration
-//
-//        return source;
-//    }
-
-//     CORS Filter Bean
-//    @Bean
-//    public CorsFilter corsFilter() {
-//        return new CorsFilter(corsConfigurationSource());
-//    }
 
 //     Security filter chain configuration
     @Bean

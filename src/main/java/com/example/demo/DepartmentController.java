@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +14,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/departments")
-//@CrossOrigin(origins = "http://127.0.0.1:5173") // Allow requests from your frontend
+//
+//
 public class DepartmentController{
 
 
     @Autowired
     private DepartmentService departmentService;
+
+    @Value("${RENDER_URL}")
+    private String renderURL;
 //    @GetMapping("/test")
 //    public String testService() {
 //        return employeeService != null ? "EmployeeService is injected!" : "EmployeeService is NOT injected.";
@@ -38,7 +42,7 @@ public class DepartmentController{
 //        return "Manage Employees Section";
 //    }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @GetMapping("/departments")
     public ResponseEntity<?> getDepartments(){
         try{
@@ -49,7 +53,7 @@ public class DepartmentController{
 
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PostMapping("/departments/add")
     public ResponseEntity<String> addDepartment(@Valid @RequestBody DepartmentDTO departmentDTO){
         try{
@@ -61,7 +65,7 @@ public class DepartmentController{
         }
 
     }
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PutMapping("/departments/update/{id}")
     public ResponseEntity<String> updateDepartment(@PathVariable("id") Long departmentId,
                                                  @RequestBody DepartmentDTO departmentDTO){
@@ -69,7 +73,7 @@ public class DepartmentController{
         return ResponseEntity.ok("Department updated successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @DeleteMapping("/departments/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long departmentId){
         departmentService.deleteDepartment(departmentId);

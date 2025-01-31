@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-//@CrossOrigin(origins = "https://oracle-ecommerce-fgbe9ltuj-lucas-projects-f61d5cb5.vercel.app")
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -21,7 +21,10 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})  // Allow POST and OPTIONS methods
+    @Value("${RENDER_URL}")
+    private String renderURL;
+
+    @CrossOrigin(origins = {"${RENDER_URL}"})  // Allow POST and OPTIONS methods
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupRequest signupRequest) {
         // Implement user creation logic
@@ -34,7 +37,7 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully");
     }
 
-    @CrossOrigin(origins = {"https://oracle-ecommerce-app.vercel.app"})
+    @CrossOrigin(origins = {"${RENDER_URL}"})
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         // Spring Security automatically handles login; return a success message

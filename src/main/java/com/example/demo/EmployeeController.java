@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,12 @@ import java.util.List;
 
 @RestController
 //@RequestMapping("/employees")
-@CrossOrigin(origins = {
-        "https://oracle-ecommerce-app.vercel.app"
-}) // Allow requests from your frontend
+
+
 public class EmployeeController{
 
-
+    @Value("${RENDER_URL}")
+    private String renderURL;
     @Autowired
     private EmployeeService employeeService;
     @GetMapping("/test")
@@ -29,7 +30,7 @@ public class EmployeeController{
 
     @Secured("ROLE_EMPLOYEE")
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @GetMapping("/profile")
     public String getEmployeeProfile() {
@@ -44,7 +45,7 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @GetMapping("/employees")
     public ResponseEntity<?> getEmployees(){
@@ -58,7 +59,7 @@ public class EmployeeController{
 
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @PostMapping("/employees/add")
     public ResponseEntity<String> hireEmployee(@Valid @RequestBody EmployeeDTO employeeDTO){
@@ -72,7 +73,7 @@ public class EmployeeController{
 
     }
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @PutMapping("/employees/update/{id}")
     public ResponseEntity<String> updateEmployee(@PathVariable("id") Long employeeId,
@@ -83,7 +84,7 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @PutMapping("/employees/promote/{id}")
     public ResponseEntity<String> promoteEmployee(@PathVariable("id") Long employeeId,@RequestBody PromoteDTO promoteDTO){
@@ -92,7 +93,7 @@ public class EmployeeController{
     }
 
     @CrossOrigin(origins = {
-            "https://oracle-ecommerce-app.vercel.app"
+            "${RENDER_URL}"
     })
     @DeleteMapping("/employees/delete/{id}")
     public ResponseEntity<String> promoteEmployee(@PathVariable("id") Long employeeId){
