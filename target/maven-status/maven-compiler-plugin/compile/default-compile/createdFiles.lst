@@ -2,6 +2,7 @@ com/example/demo/SignupRequest.class
 com/example/demo/EmployeeController.class
 com/example/demo/PerformanceReviewsService.class
 com/example/demo/AuthController.class
+com/example/demo/CorsConfig.class
 com/example/demo/EmployeeDTO.class
 com/example/demo/SecurityConfig.class
 com/example/demo/DepartmentService.class
@@ -19,5 +20,6 @@ com/example/demo/DepartmentDTO.class
 com/example/demo/PromoteDTO.class
 com/example/demo/WebConfig.class
 com/example/demo/LoginRequest.class
+com/example/demo/CorsConfig$1.class
 com/example/demo/DepartmentController.class
 com/example/demo/EmployeeService.class
